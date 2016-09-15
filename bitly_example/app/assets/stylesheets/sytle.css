@@ -1,0 +1,85 @@
+/* Paleta de colores */
+/* 
+  Gris raro
+      hex: #A69F8A
+      rgb: 166,159,138
+  Gris raro mas clarito
+  #C3BDAE
+(195,189,174)
+  Verde raro
+      hex: #91C4B4
+      rgb: 145,196,180
+  Azul oscuro
+      hex: #0F434A
+      rgb: 15,67,74
+  Azul medio1
+      hex: #1C7D8A
+      rgb: 28,125,138
+  Azul medio2(verdoso)
+      hex: #3CAEBA
+      rgb: 60,174,186
+  Azul clarito
+      hex: #2CC3D6
+      rgb: 44,195,214 
+*/
+html, body{
+  margin: 0px;
+  font-family: 'Arima Madurai', cursive;
+  background-color: #C3BDAE;
+}
+.no-list{
+  list-style: none;
+}
+
+nav{
+  padding: 5px 7px;
+  background-color: #0F434A;
+  color: white;
+  margin-bottom: 15px; 
+}
+
+nav ul li{
+  padding: 10px;
+}
+nav a{
+  font-size: 1.8em;
+}
+
+.container{
+  width: 80%;
+  margin: auto;
+  border-radius: 5px;
+  border: 1px dotted black;
+}
+
+/*
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked
+*/
+
+/* Para cualquier link */
+a{
+  color: white;
+  font-size: 1.3em;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2CC3D6;
+    font-style: italic;
+    
+}
+
+a:active {
+    color: #2CC3D6;
+    text-decoration: underline;
+}

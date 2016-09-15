@@ -2,13 +2,33 @@
 <html>
 <head>
   <title>BitlyExample</title>
+  <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <header>
+    <nav class="">
+      <ul class="no-list row center-xs middle-xs">
+        <li class="col-md">
+          <!-- Antes : <a href="/">Index</a> -->
+          <%= link_to 'Index', root_path %>
+        </li>
+        <li class="col-md">
+          <!-- Antes : <a href="/users/:id">User Profile</a> -->
+          <!-- Ahora: -->
+          asd
+        </li>
+        <li class="col-md">
+          asd
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
