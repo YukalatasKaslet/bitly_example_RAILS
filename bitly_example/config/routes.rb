@@ -17,14 +17,15 @@ Rails.application.routes.draw do
   #   resources :products
   resources :urls
     #resources :urls genera
-      # GET       /urls
-      # POST      /urls
-      # GET       /urls/new
-      # GET       /urls/:id
-      # GET       /urls/:id/edit 
-      # PATCH/PUT /urls/:id
-      # DELETE    /urls
-      
+     #     urls GET    /urls(.:format)          urls#index
+     #          POST   /urls(.:format)          urls#create
+     #  new_url GET    /urls/new(.:format)      urls#new
+     # edit_url GET    /urls/:id/edit(.:format) urls#edit
+     #      url GET    /urls/:id(.:format)      urls#show
+     #          PATCH  /urls/:id(.:format)      urls#update
+     #          PUT    /urls/:id(.:format)      urls#update
+     #          DELETE /urls/:id(.:format)      urls#destroy
+     
   # Example resource route with options:
   #   resources :products do
   #     member do
