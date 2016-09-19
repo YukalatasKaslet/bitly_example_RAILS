@@ -46,8 +46,9 @@ nav a{
 }
 
 .container{
-  width: 80%;
+  width: 75%;
   margin: auto;
+  padding: 25px;
   border-radius: 5px;
   border: 1px dotted black;
 }
