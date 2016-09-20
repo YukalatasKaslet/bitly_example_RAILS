@@ -1,3 +1,11 @@
 <h1>Index URLS</h1>
 <br>
-<%= @urls.inspect %>
+<% if @urls %>
+  <ul>
+    <% @urls.each do |url| %>
+      <li>
+        <%= link_to url.short_url, url_path(url.id) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
