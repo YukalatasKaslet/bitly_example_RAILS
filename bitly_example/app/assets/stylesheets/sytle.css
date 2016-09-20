@@ -112,8 +112,10 @@ a:active {
     /*text-decoration: underline;*/
 }
 
-.form_for1 input{
+.form_for_input_text{
   width: 80%;
-  height: 25px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
   outline-color: #2CC3D6;
 }
