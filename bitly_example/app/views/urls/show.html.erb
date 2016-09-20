@@ -1,0 +1,13 @@
+<h1> Vista urls/:id </h1>
+
+<% if @url %>
+  <p>
+    Short&ensp;url:&ensp;<%= @url.short_url %>
+    <br>
+    Long&ensp; url:&ensp;<%= @url.long_url %>
+    <br>
+    Visits:&ensp;<%= @url.visits_count %>
+  </p>
+<% else %>
+<strong> URL no válida o no existe</strong>
+<% end %>
