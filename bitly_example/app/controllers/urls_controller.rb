@@ -22,6 +22,8 @@ class UrlsController < ApplicationController
     @url = Url.new(long_url: params[:url][:long_url])
     if @url.save
       redirect_to @url
+    else
+      render :new #acción new
     end
   end
 

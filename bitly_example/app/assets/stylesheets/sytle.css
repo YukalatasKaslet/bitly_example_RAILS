@@ -79,6 +79,13 @@ nav a:active {
   border: 1px dotted black;
 }
 
+#clear {
+/*  clear: left;*/
+  clear: none;
+/*  height: 1px;
+  margin-top: -1px;*/
+ }
+
 /*
 a:link - a normal, unvisited link
 a:visited - a link the user has visited
@@ -113,22 +120,31 @@ a:active {
 }
 
 .form_for_input_text{
-  width: 65%;
+  width: 85%;
   height: 30px;
-  padding: auto 0px;
-  margin: 0px;
+  padding: auto;
   border-radius: 5px;
   border: none;
   outline-color: #2CC3D6;
 }
 
 .form_for_input_submit{
+  width: 85%;
   height: 30px;
-  padding: auto 0px;
-  margin: 0px;
+  padding: auto;
+  margin-top: 8px;
   border-radius: 5px;
   border: none;
   background-color: #3CAEBA;
   color: white;
   /*box-shadow: 0 0 5px 1px #FFF;*/
+}
+
+.error{
+  color: red;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 1px red;
 }
