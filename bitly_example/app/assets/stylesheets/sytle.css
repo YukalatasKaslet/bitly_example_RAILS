@@ -113,9 +113,22 @@ a:active {
 }
 
 .form_for_input_text{
-  width: 80%;
+  width: 65%;
   height: 30px;
+  padding: auto 0px;
+  margin: 0px;
   border-radius: 5px;
   border: none;
   outline-color: #2CC3D6;
+}
+
+.form_for_input_submit{
+  height: 30px;
+  padding: auto 0px;
+  margin: 0px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3CAEBA;
+  color: white;
+  /*box-shadow: 0 0 5px 1px #FFF;*/
 }
