@@ -39,10 +39,36 @@ nav{
 }
 
 nav ul li{
-  padding: 10px;
+  padding: 20px;
 }
+
+/* Links navbar */
 nav a{
+  color: white;
   font-size: 1.8em;
+}
+
+nav a:link {
+    text-decoration: none;
+}
+
+nav a:visited {
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #2CC3D6;
+    font-size: 1.8em;
+    font-style: italic;
+    
+}
+
+nav a:active {
+    color: #2CC3D6;
+    /*text-decoration: underline;*/
+    padding: +15px;
+    border:1px dotted #2CC3D6;
+    border-radius: 5px;
 }
 
 .container{
@@ -62,7 +88,7 @@ a:active - a link the moment it is clicked
 
 /* Para cualquier link */
 a{
-  color: white;
+  color: #1C7D8A;
   font-size: 1.3em;
 }
 
@@ -75,12 +101,13 @@ a:visited {
 }
 
 a:hover {
-    color: #2CC3D6;
     font-style: italic;
     
 }
 
 a:active {
-    color: #2CC3D6;
-    text-decoration: underline;
+    padding-left: +3px;
+    border-left:2px solid #2CC3D6;
+    border-bottom:2px solid #2CC3D6;
+    /*text-decoration: underline;*/
 }
