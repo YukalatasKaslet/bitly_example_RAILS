@@ -1,17 +1,1 @@
-  <form action="/urls" method="post">
-    Ingresa tu url larga
-    <br>
-    <input type="text" name="url_original">
-    <input type="submit" value="short!">
-  </form>
-
-  <%= form_for :post do |f| %>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-   
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
+<%= link_to "Crea una short_url", new_url_path %>
