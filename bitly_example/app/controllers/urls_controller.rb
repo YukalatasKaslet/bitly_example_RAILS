@@ -1,17 +1,8 @@
 class UrlsController < ApplicationController
+  
   #GET /urls
   def index
     @urls = Url.all
-  end
-
-  #GET /urls/:id
-  def show
-    @url = Url.find(params[:id])
-  end
-
-  #GET /urls/new
-  def new
-    @url = Url.new
   end
 
   #POST /urls
@@ -29,6 +20,26 @@ class UrlsController < ApplicationController
     end
   end
 
+  #GET /urls/new
+  def new
+    @url = Url.new
+  end
+
+  #GET /urls/:id/edit
+  def edit
+    @url = Url.find(params[:id])
+  end
+
+  #GET /urls/:id
+  def show
+    @url = Url.find(params[:id])
+  end
+
+  #PATCH /urls/:id
+
+  #PUT /urls/:id
+
+  #DELETE /urls/:id
   def destroy
     @url = Url.find(params[:id])
     @url.destroy
