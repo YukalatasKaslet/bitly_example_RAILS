@@ -1,0 +1,14 @@
+<h1><%= name %> tu URL:</h1>
+<% if !(@url.errors.empty?) %>
+  <p class="error">
+    <% @url.errors.full_messages.each do |message| %>
+      .::&ensp;<%= message %>&ensp;::.<br>
+    <% end %>
+  </p><br>
+<% end %>
+  
+<%= form_for @url, html: { :class =>
+'center-xs' } do |f| %>
+  <%= f.text_field :long_url, placeholder: "Ingresa tu url larga", class: "form_for_input_text" %>
+  <%= f.submit "Guardar", class: "form_for_input_submit"%>
+<% end %>

@@ -1,16 +1,2 @@
 <p>Vista new_url</p>
-<h1>Ingresa tu URL:</h1>
-  
-  <% if !(@url.errors.empty?) %>
-    <p class="error">
-      <% @url.errors.full_messages.each do |message| %>
-        .::&ensp;<%= message %>&ensp;::.<br>
-      <% end %>
-    </p><br>
-  <% end %>
-  
-<%= form_for @url, html: { :class =>
-'center-xs' } do |f| %>
-  <%= f.text_field :long_url, placeholder: "Ingresa tu url larga", class: "form_for_input_text" %>
-  <%= f.submit "Crear", class: "form_for_input_submit"%>
-<% end %>
+<%= render "form", name: "Ingresa" %> <!-- Como estamos en la misma carpeta no es necesario poner "urls/form" -->
