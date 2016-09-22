@@ -2,7 +2,7 @@
 
 <% if @url %>
   <p>
-    Short&ensp;url:&ensp;<%= @url.short_url %>
+    Short&ensp;url:&ensp;<%= link_to(@url.short_url,{:action => 'short_url', :short_url => @url.short_url }) %>
     <br>
     Long&ensp; url:&ensp;<%= @url.long_url %>
     <br>
