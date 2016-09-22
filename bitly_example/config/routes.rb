@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :urls
+    get ':short_url' => 'urls#short_url'
     #resources :urls genera
      #     urls GET    /urls(.:format)          urls#index
      #          POST   /urls(.:format)          urls#create
