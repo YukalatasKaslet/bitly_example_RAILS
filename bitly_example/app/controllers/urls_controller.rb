@@ -36,6 +36,17 @@ class UrlsController < ApplicationController
   end
 
   #PATCH /urls/:id
+  def update
+    @url = Url.find(params[:id])
+    if @url.update_attributes(url_params)
+      # Handle a successful update.
+      #render 'show'
+      redirect_to url_path
+    else
+      render 'edit'
+      #redirect_to edit_url_path #de esta forma no muestra los errores que se habían guardado en el objeto
+    end
+  end
 
   #PUT /urls/:id
 
