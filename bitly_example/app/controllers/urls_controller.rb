@@ -57,6 +57,18 @@ class UrlsController < ApplicationController
     redirect_to urls_path
   end
 
+  def short_url
+  #redirige a la Url original
+  short_url = params[:short_url]
+  url = Url.find_by(short_url: short_url)
+    if url
+      url.visits_count += 1
+      url.save
+      redirect_to( url.long_url )
+    end
+  end
+
+
  private
   def url_params
     params.require(:url).permit(:long_url)
