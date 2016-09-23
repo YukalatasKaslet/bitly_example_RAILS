@@ -13,9 +13,13 @@ class UrlsController < ApplicationController
     #@url = Url.new(long_url: params[:url][:long_url])
     #@url = Url.new(params[:url]) #esto no es seguro y manda a error por lo mismo
     @url = Url.new(url_params)
+    # p "*"*50
+    # p url_params
     if @url.save
+      flash[:success]= "La URL se guardó correctamente"
       redirect_to @url
     else
+      flash[:error]= "La URL no se guardó correctamente"
       render :new #acción new
     end
   end
@@ -38,13 +42,18 @@ class UrlsController < ApplicationController
   #PATCH /urls/:id
   def update
     @url = Url.find(params[:id])
+
     if @url.update_attributes(url_params)
+
       # Handle a successful update.
       #render 'show'
+      flash[:success]= "La URL se guardó correctamente"
       redirect_to url_path
     else
-      render 'edit'
-      #redirect_to edit_url_path #de esta forma no muestra los errores que se habían guardado en el objeto
+      flash[:error]= "La URL no se guardó correctamente"
+      redirect_to edit_url_path
+      # render 'edit' #ya no es necesario xq uso flash para los errores
+      # #redirect_to edit_url_path #de esta forma no muestra los errores que se habían guardado en el objeto
     end
   end
 
@@ -67,7 +76,7 @@ class UrlsController < ApplicationController
       redirect_to( url.long_url )
     else
       @url = Url.new
-      @url.errors.add(:short_url_are_invalid, "")
+      # @url.errors.add(:short_url_are_invalid, "")#Ya no es necesario por el uso de flash
       flash[:error] = "*** La Url que ingresaste no es válida ***"
       render 'error'
     end
