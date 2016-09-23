@@ -65,6 +65,11 @@ class UrlsController < ApplicationController
       url.visits_count += 1
       url.save
       redirect_to( url.long_url )
+    else
+      @url = Url.new
+      @url.errors.add(:short_url_are_invalid, "")
+      flash[:error] = "*** La Url que ingresaste no es válida ***"
+      render 'error'
     end
   end
 

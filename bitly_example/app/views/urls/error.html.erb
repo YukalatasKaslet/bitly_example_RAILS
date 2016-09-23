@@ -1,0 +1,9 @@
+<% if @url %>  
+  <% if !(@url.errors.empty?) %>
+    <p class="error">
+      <% @url.errors.full_messages.each do |message| %>
+        .::&ensp;<%= message %>&ensp;::.<br>
+      <% end %>
+    </p><br>
+  <% end %>
+<% end %>
