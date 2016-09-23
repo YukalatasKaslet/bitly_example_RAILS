@@ -39,8 +39,24 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  get '/users' => 'users#profile'
-  resources :users, :except => [:index]
+  
+  get  'profile'  => 'users#profile'
+  post 'signup' => 'users#signup'
+  get  'logout' => 'users#logout'
+  get  'login'  => 'users#login'
+  post 'login'  => 'users#login'
+
+  resources :users, :except => [:index, :create, :show]
+    #     users GET    /users(.:format)          users#profile
+    #    signup POST   /signup(.:format)         users#signup
+    #    logout GET    /logout(.:format)         users#logout
+    #     login GET    /login(.:format)          users#login
+    #           POST   /login(.:format)          users#login
+    #  new_user GET    /users/new(.:format)      users#new
+    # edit_user GET    /users/:id/edit(.:format) users#edit
+    #      user PATCH  /users/:id(.:format)      users#update
+    #           PUT    /users/:id(.:format)      users#update
+    #           DELETE /users/:id(.:format)      users#destroy
       
   
   resources :urls
