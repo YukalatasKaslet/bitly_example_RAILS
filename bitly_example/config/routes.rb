@@ -39,7 +39,10 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :users
+  get '/users' => 'users#profile'
+  resources :users, :except => [:index]
+      
+  
   resources :urls
     get ':short_url' => 'urls#short_url'
     #resources :urls genera
