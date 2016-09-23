@@ -1,19 +1,29 @@
 Rails.application.routes.draw do
-  get 'users/index'
-
-  get 'users/create'
-
-  get 'users/new'
-
-  get 'users/edit'
-
-  get 'users/show'
-
-  get 'users/update'
-
-  get 'users/delete'
-
+  #Esto lo generó automaticamente al generar el controlador y sus acciones
+  #NO es lo mismo que si ponemos resources :users
+  #En ninguna ruta se pasa como parámetro el id 
+      # get 'users/index'
+        #  users_index GET    /users/index(.:format)   users#index
+      # get 'users/create'
+        # users_create GET    /users/create(.:format)  users#create
+      # get 'users/new'
+        #    users_new GET    /users/new(.:format)     users#new
+      # get 'users/edit'
+        #   users_edit GET    /users/edit(.:format)    users#edit
+      # get 'users/show'
+        #   users_show GET    /users/show(.:format)    users#show
+      # get 'users/update'
+        # users_update GET    /users/update(.:format)  users#update
+      # get 'users/delete'    #<--- Aquí debía ser DESTROY y no DELETE
+        # users_delete GET    /users/delete(.:format)  users#delete
   get 'welcome/index'
+ 
+
+
+ 
+ 
+ 
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -29,6 +39,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :users
   resources :urls
     get ':short_url' => 'urls#short_url'
     #resources :urls genera
