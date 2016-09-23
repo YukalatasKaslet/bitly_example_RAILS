@@ -1,2 +1,13 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+<%= form_for @user, :url => signup_path, html: { :class =>
+'center-xs' } do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name, placeholder: "Ingresa tu nombre", class: "form_for_input_text" %><br>
+  <%= f.label :email %><br>
+  <%= f.text_field :email, placeholder: "Ingresa tu email", class: "form_for_input_text" %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password , class: "form_for_input_text"%>
+  <%= f.submit "Guardar", class: "form_for_input_submit"%>
+<% end %>
