@@ -4,8 +4,8 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
   end
 
-  #create
-  def signup
+  #signup
+  def create
     valid_user_params = user_params
     # p"*"*50
     # p valid_user_params
@@ -16,8 +16,8 @@ class UsersController < ApplicationController
       flash[:success] = "El usuario se guardó correctamente"
       redirect_to profile_path
     else
-      flash[:error] = "***El usuario no sé guardo correctamente, vuelte a intentarlo***"
-      redirect_to new_user_path
+      flash[:error] = "***El usuario no se guardó correctamente, vuelte a intentarlo***"
+      redirect_to signup_path
     end
   end
 
