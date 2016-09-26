@@ -26,15 +26,29 @@ class UsersController < ApplicationController
   end
 
   def edit
+     @user = User.find(params[:id])
   end
 
   # def show
   # end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "El usuario se actualizó correctamente"
+      redirect_to profile_path
+      # Handle a successful update.
+    else
+      flash[:error] = "***El usuario no se guardó correctamente, vuelte a intentarlo***"
+      #render 'edit'
+      redirect_to edit_path
+    end
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
  private
