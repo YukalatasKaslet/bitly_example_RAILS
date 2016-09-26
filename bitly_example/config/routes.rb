@@ -41,12 +41,12 @@ Rails.application.routes.draw do
   #   resources :products
   
   get  'profile'  => 'users#profile'
-  post 'signup' => 'users#signup'
-  get  'logout' => 'users#logout'
-  get  'login'  => 'users#login'
-  post 'login'  => 'users#login'
+  get  'signup' => 'users#new'
+  #get  'login'  => 'users#login'
+  #post 'login'  => 'users#login'
+  #get  'logout' => 'users#logout'
 
-  resources :users, :except => [:index, :create, :show]
+  resources :users, :except => [:index, :new, :show]
     #     users GET    /users(.:format)          users#profile
     #    signup POST   /signup(.:format)         users#signup
     #    logout GET    /logout(.:format)         users#logout
