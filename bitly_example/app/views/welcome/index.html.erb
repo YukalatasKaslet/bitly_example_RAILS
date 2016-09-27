@@ -1,1 +1,5 @@
-<%= link_to "Crea una short_url", new_url_path %>
+<% if logged_in? %>
+  <%= link_to "Crea una short_url", new_url_path %>
+<% else %>
+  <h1>Por favor inicia sesión o registrate para continuar :D</h1>
+<% end %>
