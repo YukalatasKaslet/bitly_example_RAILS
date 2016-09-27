@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   include BCrypt
   # Remember to create a migration!
+  before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   #Validaciones
-  validates :name, :password, presence: true
+  validates :name, presence: { message: " no puede ir vacío" }
+  validates :password, presence: { message: "no puede ir vacío" }, on: :create
   #validates :password, length: { minimum: 3, maximum: 8 }, on: :create #No funciono
-  validates :email, uniqueness: {case_sensitive: false ,message: "Ya esta registrado"}, 
-                    format: { :with => VALID_EMAIL_REGEX , message: "El formato del correo es invalido" }
+  validates :email, uniqueness: {case_sensitive: false ,message: "ya esta registrado"}, 
+                    presence: { message: "no puede ir vacío" },
+                    format: { :with => VALID_EMAIL_REGEX , message: "formato inválido" }
   #validates :email, presence: true, uniqueness: true
 
   #se está usando en self.authenticate *user.password*

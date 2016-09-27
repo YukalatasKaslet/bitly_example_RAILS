@@ -7,17 +7,34 @@ class UsersController < ApplicationController
   #signup
   def create
     valid_user_params = user_params
-    # p"*"*50
-    # p valid_user_params
+     p"*"*50
+     p valid_user_params
     @user = User.new(name: valid_user_params["name"], email: valid_user_params["email"])
-    @user.password=(valid_user_params["password"])
+
+    p password = valid_user_params["password"]
+    p password_nil?(password)
+
+    if !(password_nil?(password))
+      @user.password=(password)
+    else
+      flash[:error] = "El password no puede ir vacío"
+      return redirect_to signup_path
+    end
+    
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = "El usuario se guardó correctamente"
       redirect_to profile_path
     else
-      flash[:error] = "***El usuario no se guardó correctamente, vuelte a intentarlo***"
+      message = ""
+      if !(@user.errors.empty?)
+        @user.errors.full_messages.each do |error_message|
+          message += ".:: #{error_message} ::.&&&"
+        end
+        flash[:error] = message  
+      end
       redirect_to signup_path
+      #render 'new'
     end
   end
 
@@ -54,5 +71,13 @@ class UsersController < ApplicationController
  private
   def user_params
     params.require(:user).permit(:name, :email, :password)
+  end
+
+  def password_nil?(password)
+    if password == ""
+      true
+    else
+      false
+    end
   end
 end#UsersController
