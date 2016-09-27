@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   #post 'login'  => 'users#login'
   #get  'logout' => 'users#logout'
 
-  resources :users, :except => [:index, :new, :show]
+  resources :users, :except => [:index, :new, :show] do
     #     users GET    /users(.:format)          users#profile
     #    signup POST   /signup(.:format)         users#signup
     #    logout GET    /logout(.:format)         users#logout
@@ -60,10 +60,9 @@ Rails.application.routes.draw do
     # edit_user GET    /users/:id/edit(.:format) users#edit
     #      user PATCH  /users/:id(.:format)      users#update
     #           PUT    /users/:id(.:format)      users#update
-    #           DELETE /users/:id(.:format)      users#destroy
-      
-  
-  resources :urls
+    #           DELETE /users/:id(.:format)      users#destroy  
+    resources :urls
+  end
     get ':short_url' => 'urls#short_url'
     #resources :urls genera
      #     urls GET    /urls(.:format)          urls#index
