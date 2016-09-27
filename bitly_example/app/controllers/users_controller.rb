@@ -17,13 +17,13 @@ class UsersController < ApplicationController
     if !(password_nil?(password))
       @user.password=(password)
     else
-      flash[:error] = "El password no puede ir vacío"
+      flash[:error] = ".:: El password no puede ir vacío ::."
       return redirect_to signup_path
     end
     
     if @user.save
       session[:user_id] = @user.id
-      flash[:success] = "El usuario se guardó correctamente"
+      flash[:success] = ".:: El usuario se guardó correctamente ::."
       redirect_to profile_path
     else
       message = ""
@@ -52,11 +52,11 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      flash[:success] = "El usuario se actualizó correctamente"
+      flash[:success] = ".:: El usuario se actualizó correctamente ::."
       redirect_to profile_path
       # Handle a successful update.
     else
-      flash[:error] = "***El usuario no se guardó correctamente, vuelte a intentarlo***"
+      flash[:error] = ".:: El usuario no se guardó correctamente, vuelte a intentarlo ::."
       #render 'edit'
       redirect_to edit_path
     end
@@ -65,6 +65,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    flash[:success] = ".:: El usuario se ha borrado correctamente ::."
     redirect_to root_path
   end
 
