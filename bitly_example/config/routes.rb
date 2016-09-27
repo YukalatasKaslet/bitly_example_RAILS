@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #Esto lo generó automaticamente al generar el controlador y sus acciones
   #NO es lo mismo que si ponemos resources :users
   #En ninguna ruta se pasa como parámetro el id 
@@ -39,9 +40,12 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
+  get  'signup'   => 'users#new'
+  get  'login'    => 'sessions/new'
+  post 'sessions/create'
+  get  'logout'   => 'sessions/destroy'
   get  'profile'  => 'users#profile'
-  get  'signup' => 'users#new'
+  
   #get  'login'  => 'users#login'
   #post 'login'  => 'users#login'
   #get  'logout' => 'users#logout'
