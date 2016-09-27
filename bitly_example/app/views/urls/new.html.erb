@@ -1,2 +1,8 @@
 <p>Vista new_url</p>
+<p>
+  <%= current_user %>
+  <%= logged_in? %>
+  <%= session[:user_id] %>
+</p>
+
 <%= render "form", name: "Ingresa" %> <!-- Como estamos en la misma carpeta no es necesario poner "urls/form" -->

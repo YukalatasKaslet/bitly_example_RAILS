@@ -1,2 +1,14 @@
 <h1>Sessions#new</h1>
+Ruta /login
 <p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "Log in") %>
+
+<%= form_for :session, url: sessions_create_path, html: { :class =>
+'center-xs' } do |f| %>
+  <%= f.label :email %><br>
+  <%= f.email_field :email, placeholder: "Ingresa tu email", class: "form_for_input_text" %><br>
+  <%= f.label :password %><br>
+  <%= f.password_field :password, class: "form_for_input_text"%>
+  <%= f.submit "Log in", class: "form_for_input_submit" %>
+<% end %>
+<p>New user? <%= link_to "Sign up!", signup_path %></p>
