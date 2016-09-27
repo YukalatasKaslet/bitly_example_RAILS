@@ -4,7 +4,7 @@
 
 <%= form_for @user, :url => users_path, html: { :class =>
 'center-xs' } do |f| %>
-  <%= f.label :name %><br>
+  <%= f.label :name, "Nombre:" %><br>
   <%= f.text_field :name, placeholder: "Ingresa tu nombre", class: "form_for_input_text" %><br>
   <%= f.label :email %><br>
   <%= f.email_field :email, placeholder: "Ingresa tu email", class: "form_for_input_text" %><br>
