@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def logged_in?
+  def logged_in?#TRUE if user session exist
     !current_user.nil?
   end
 
