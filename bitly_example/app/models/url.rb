@@ -1,6 +1,6 @@
 class Url < ActiveRecord::Base
   #Relaciones
-  belongs_to :user
+  belongs_to :user#, :dependent => :destroy #borra tanto usuario como url
   #antes de crear manda a llamar al método mencionado
   before_create :create_short_url
 
