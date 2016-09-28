@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   #signup
   def create
     valid_user_params = user_params
-     p"*"*50
-     p valid_user_params
+     # p"*"*50
+     # p valid_user_params
     @user = User.new(name: valid_user_params["name"], email: valid_user_params["email"])
 
     p password = valid_user_params["password"]
@@ -51,14 +51,34 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = ".:: El usuario se actualizó correctamente ::."
-      redirect_to profile_path
-      # Handle a successful update.
+    valid_user_params = user_params
+
+    if !(password_nil?(valid_user_params["password"]))
+      user = User.authenticate(valid_user_params["email"].downcase, valid_user_params["password"])
     else
-      flash[:error] = ".:: El usuario no se guardó correctamente, vuelte a intentarlo ::."
-      #render 'edit'
-      redirect_to edit_path
+      flash[:error] = ".:: El password no puede ir vacío ::."
+      return redirect_to edit_user_path 
+    end
+
+    if @user.id = user.id
+      if @user.update_attributes(name: valid_user_params["name"])
+        flash[:success] = ".:: El usuario se actualizó correctamente ::."
+        redirect_to profile_path
+        # Handle a successful update.
+      else
+        message = ""
+        if !(@user.errors.empty?)
+          @user.errors.full_messages.each do |error_message|
+            message += ".:: #{error_message} ::.&&&"
+          end
+        flash[:error] = ".:: El usuario no se guardó, vuelte a intentarlo ::.&&&" + message  
+      end
+        redirect_to edit_user_path
+      end
+    else
+      flash[:error] = ".:: El usuario y la sesión no coinciden ::."
+        #render 'edit'
+      redirect_to edit_user_path      
     end
   end
 
