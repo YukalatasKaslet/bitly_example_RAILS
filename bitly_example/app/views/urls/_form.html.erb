@@ -6,8 +6,8 @@
     <% end %>
   </p><br>
 <% end %>
-  
-<%= form_for @url, html: { :class =>
+<!-- ahora se debe formar con el recurso padre y el hijo -->
+<%= form_for [current_user ,@url], html: { :class =>
 'center-xs' } do |f| %>
   <%= f.text_field :long_url, placeholder: "Ingresa tu url larga", class: "form_for_input_text" %>
   <%= f.submit "Guardar", class: "form_for_input_submit"%>
