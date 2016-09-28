@@ -1,2 +1,14 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+
+<%= form_for @user, :url => user_path, html: { :class =>
+'center-xs' } do |f| %>
+  <%= f.label :name, "Cambia tu nombre:" %><br>
+  <%= f.text_field :name, placeholder: "Ingresa tu nombre", class: "form_for_input_text" %><br>
+  <hr>
+  <%= f.label :email, "Confirma tu email:" %><br>
+  <%= f.email_field :email, placeholder: "Ingresa tu email", class: "form_for_input_text" %><br>
+  <%= f.label :password, "Confirma tu password:" %><br>
+  <%= f.password_field :password, placeholder: "Escribe tu contraseña para guardar los cambios", class: "form_for_input_text"%>
+  <%= f.submit "Guardar", class: "form_for_input_submit"%>
+<% end %>
