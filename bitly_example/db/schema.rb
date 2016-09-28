@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20160923180346) do
 
   create_table "urls", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "short_url"
     t.string   "long_url"
     t.integer  "visits_count", default: 0
