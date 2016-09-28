@@ -12,7 +12,10 @@
           <%= link_to 'URLs', user_urls_path(current_user.id) %>
         </li>
         <li class="col-md center-xs">
-          <%= link_to 'Logout', logout_path %>
+          <%= link_to "Logout", logout_path %>
+        </li>
+        <li class="col-md center-xs">
+          <%= link_to "Profile", profile_path %>
         </li>
       <% else %>
         <li class="col-md center-xs">
