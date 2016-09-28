@@ -4,7 +4,7 @@
   <ul>
     <% @urls.each do |url| %>
       <li>
-        <%= link_to url.short_url, url_path(url.id) %>
+        <%= link_to url.short_url, user_url_path(params[:user_id],url.id) %>
       </li>
     <% end %>
   </ul>
