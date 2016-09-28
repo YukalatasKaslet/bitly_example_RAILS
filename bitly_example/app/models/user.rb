@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   include BCrypt
+  #Relaciones
+  has_many :urls
   # Remember to create a migration!
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

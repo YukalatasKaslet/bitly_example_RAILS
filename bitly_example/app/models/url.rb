@@ -1,4 +1,6 @@
 class Url < ActiveRecord::Base
+  #Relaciones
+  belongs_to :user
   #antes de crear manda a llamar al método mencionado
   before_create :create_short_url
 
