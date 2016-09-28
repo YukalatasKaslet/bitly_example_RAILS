@@ -9,7 +9,7 @@
     Visits:&ensp;<%= @url.visits_count %>
   </p>
   <%= link_to("Editar",{:action => 'edit', :id => @url.id }) %>&ensp;
-  <%= link_to "Eliminar", @url, method: :delete %>
+  <%= link_to("Eliminar",user_url_path(params[:user_id], @url.id), method: :delete) %>
 <% else %>
 <strong> URL no válida o no existe</strong>
 <% end %>
