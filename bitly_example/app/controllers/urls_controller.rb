@@ -7,17 +7,19 @@ class UrlsController < ApplicationController
 
   #POST /urls
   def create
-    # p"*"*50
-    # p params
+    p"*"*50
+    p params
     # p params[:url][:long_url]
     #@url = Url.new(long_url: params[:url][:long_url])
     #@url = Url.new(params[:url]) #esto no es seguro y manda a error por lo mismo
+    @user = User.find(params[:user_id])
     @url = Url.new(url_params)
     # p "*"*50
     # p url_params
     if @url.save
+      @user.urls << @url
       flash[:success]= ".:: La URL se guardó correctamente ::."
-      redirect_to @url
+      redirect_to user_url_path(@user.id, @url.id)
     else
       flash[:error]= ".:: La URL no se guardó correctamente ::."
       render :new #acción new
@@ -48,10 +50,10 @@ class UrlsController < ApplicationController
       # Handle a successful update.
       #render 'show'
       flash[:success]= ".:: La URL se guardó correctamente ::."
-      redirect_to url_path
+      redirect_to user_url_path
     else
       flash[:error]= ".:: La URL no se guardó correctamente ::."
-      redirect_to edit_url_path
+      redirect_to edit_user_url_path
       # render 'edit' #ya no es necesario xq uso flash para los errores
       # #redirect_to edit_url_path #de esta forma no muestra los errores que se habían guardado en el objeto
     end
@@ -61,10 +63,18 @@ class UrlsController < ApplicationController
 
   #DELETE /urls/:id
   def destroy
+    # p"*"*40
+    # p params
+    user = User.find(params[:user_id])
     @url = Url.find(params[:id])
-    @url.destroy
-    flash[:success]= ".:: La URL se borró correctamente ::."
-    redirect_to urls_path
+    if user.id == @url.user.id
+      @url.destroy
+      flash[:success]= ".:: La URL se borró correctamente ::."
+      redirect_to user_urls_path
+    else
+      flash[:error]= ".:: La URL no se borró correctamente ::.&&&.:: Los usuarios no corresponden ::."
+      redirect_to user_url_path
+    end
   end
 
   def short_url
